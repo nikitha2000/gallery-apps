@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import "./Nav.css";
 import Button from "../Button";
+import "./Navbar.css";
 
 function Nav() {
-  const [activeItem, setActiveItem] = useState(null);
+  const [navigationItem, setNavigationItem] = useState("Home");
   const navItems = [
     "Home",
     "Videos",
@@ -12,8 +12,8 @@ function Nav() {
     "Favourites",
   ];
 
-  const handleClick = (item) => {
-    setActiveItem(item);
+  const onNavigationItemClick = (item) => {
+    setNavigationItem(item);
   };
 
   return (
@@ -23,8 +23,8 @@ function Nav() {
           {navItems.map((item) => (
             <a
               key={item}
-              className={`nav-item ${activeItem === item ? "active" : ""}`}
-              onClick={() => handleClick(item)}>
+              className={`nav-item ${navigationItem === item ? "active" : ""}`}
+              onClick={() => onNavigationItemClick(item)}>
               {item}
             </a>
           ))}
