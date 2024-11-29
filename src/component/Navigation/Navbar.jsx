@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import "./Nav.css";
 import Button from "../Button";
+import "./Navbar.css";
 
 function Nav() {
-  const [activeItem, setActiveItem] = useState(null);
+  const [navigationItem, selectedNavigationItem] = useState("Home");
   const navItems = [
     "Home",
     "Videos",
@@ -12,8 +12,8 @@ function Nav() {
     "Favourites",
   ];
 
-  const handleClick = (item) => {
-    setActiveItem(item);
+  const onNavigationItemClick = (item) => {
+    selectedNavigationItem(item);
   };
 
   return (
@@ -23,15 +23,15 @@ function Nav() {
           {navItems.map((item) => (
             <a
               key={item}
-              className={`nav-item ${activeItem === item ? "active" : ""}`}
-              onClick={() => handleClick(item)}>
+              className={`nav-item ${navigationItem === item ? "active" : ""}`}
+              onClick={() => onNavigationItemClick(item)}>
               {item}
             </a>
           ))}
         </div>
       </div>
       <div className="sub-heading">
-        <h4>New Stock Photos</h4>
+        <h4 className="navbar-heading">New Stock Photos</h4>
         <div className="drop-down-button">
           <Button label="New" className="new-button" />
         </div>
