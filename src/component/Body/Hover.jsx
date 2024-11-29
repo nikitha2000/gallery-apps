@@ -8,17 +8,17 @@ const HoverButtons = ({ isHovered }) => {
       {isHovered && (
         <div className="top-left-button">
           <Button
-            label={<img src="/svgexport-16.svg" alt="Save Icon" />}
+            label={<img src="/asset/save.svg" alt="Save Icon" />}
             className="save-button"
           />
           <Button
-            label={<img src="/svgexport-17.svg" alt="Heart Icon" />}
+            label={<img src="/asset/heart.svg" alt="Heart Icon" />}
             className="save-button"
           />
         </div>
       )}
       <div className="bottom-left">
-        <Button label="Download" className="download-button" />
+        <Button label={" Download"} className="download-button" />
       </div>
     </div>
   );
