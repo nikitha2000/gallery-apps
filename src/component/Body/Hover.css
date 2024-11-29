@@ -5,11 +5,9 @@
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column; /* Stack buttons vertically */
+  flex-direction: column;
   gap: 10px;
   align-items: flex-end;
-  /* justify-content: space-between;
-  align-items: flex-start; */
   padding: 10px;
   opacity: 0;
 }
@@ -36,11 +34,11 @@
   position: absolute;
   bottom: 30px;
   right: 20px;
-  border-radius: 100px;
   background-color: #05a081;
   color: white;
   height: 50px;
   width: auto;
+  border-radius: 100px;
   border: none;
   font-size: 16px;
 }
