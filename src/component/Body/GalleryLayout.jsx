@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./Body.css";
+import "./GalleryLayout.css";
 
 const Photos = () => {
   const [photos, setPhotos] = useState([]);
@@ -25,6 +25,7 @@ const Photos = () => {
   if (error) {
     return <div>{error}</div>;
   }
+
   return (
     <div className="photos-container">
       {photos.map((photo) => (
