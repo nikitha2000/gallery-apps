@@ -23,3 +23,5 @@ const ActionButtons = ({ isHovered }) => {
     </div>
   );
 };
+
+export default ActionButtons;
