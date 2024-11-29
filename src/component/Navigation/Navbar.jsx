@@ -3,7 +3,7 @@ import Button from "../Button";
 import "./Navbar.css";
 
 function Nav() {
-  const [navigationItem, setNavigationItem] = useState("Home");
+  const [navigationItem, selectedNavigationItem] = useState("Home");
   const navItems = [
     "Home",
     "Videos",
@@ -13,7 +13,7 @@ function Nav() {
   ];
 
   const onNavigationItemClick = (item) => {
-    setNavigationItem(item);
+    selectedNavigationItem(item);
   };
 
   return (
@@ -31,7 +31,7 @@ function Nav() {
         </div>
       </div>
       <div className="sub-heading">
-        <h4>New Stock Photos</h4>
+        <h4 className="navbar-heading">New Stock Photos</h4>
         <div className="drop-down-button">
           <Button label="New" className="new-button" />
         </div>
