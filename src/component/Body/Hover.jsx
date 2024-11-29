@@ -2,26 +2,26 @@ import React from "react";
 import "./Hover.css";
 import Button from "../Button";
 
-const ActionButtons = ({ isHovered }) => {
+const HoverButtons = ({ isHovered }) => {
   return (
-    <div>
+    <div className={`hover-buttons ${isHovered ? "show" : ""}`}>
       {isHovered && (
         <div className="top-left-button">
           <Button
-            label={<img src="/svgexport-16.svg" />}
+            label={<img src="/svgexport-16.svg" alt="Save Icon" />}
             className="save-button"
           />
           <Button
-            label={<img src="/svgexport-17.svg" />}
+            label={<img src="/svgexport-17.svg" alt="Heart Icon" />}
             className="save-button"
           />
         </div>
       )}
       <div className="bottom-left">
-        <Button label="download" className="download-btn" />
+        <Button label="Download" className="download-button" />
       </div>
     </div>
   );
 };
 
-export default ActionButtons;
+export default HoverButtons;

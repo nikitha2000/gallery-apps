@@ -12,6 +12,10 @@
   position: relative;
 }
 
+.photo-item:hover .action-buttons {
+  opacity: 1;
+}
+
 .photo-item img {
   width: 100%;
   height: auto;

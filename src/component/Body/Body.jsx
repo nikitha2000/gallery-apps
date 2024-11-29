@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Hover from "./Hover";
 import "./Body.css";
 
 const Photos = () => {
-  const [photos, setPhotos] = useState([]);
+  const [galleryPhotos, setGalleryPhotos] = useState([]);
+  const [hoveredImageId, setHoveredImageId] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -12,7 +14,7 @@ const Photos = () => {
         const response = await axios.get(
           "https://jsonplaceholder.typicode.com/photos"
         );
-        setPhotos(response.data);
+        setGalleryPhotos(response.data);
       } catch (error) {
         console.error("Error fetching photos:", error);
         setError("Error fetching data!");
@@ -25,10 +27,22 @@ const Photos = () => {
   if (error) {
     return <div>{error}</div>;
   }
+
+  const handleMouseEnter = (id) => {
+    setHoveredImageId(id);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredImageId(null);
+  };
+
   return (
     <div className="photos-container">
-      {photos.map((photo) => (
-        <div key={photo.id} className="photo-item">
+      {galleryPhotos.map((photo) => (
+        <div
+          key={photo.id}
+          className="photo-item"
+          onMouseEnter={() => handleMouseEnter(photo.id)}>
           <img src={photo.thumbnailUrl} alt={photo.title} />
         </div>
       ))}
