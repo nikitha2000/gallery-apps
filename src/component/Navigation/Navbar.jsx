@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import Button from "../Button";
 import "./Navbar.css";
 
-function Nav() {
-  const [navigationItem, selectedNavigationItem] = useState("Home");
+function Navbar() {
+  const [selectedNavItem, setSelectedNavItem] = useState("Home");
   const navItems = [
     "Home",
     "Videos",
@@ -13,7 +13,7 @@ function Nav() {
   ];
 
   const onNavigationItemClick = (item) => {
-    selectedNavigationItem(item);
+    setSelectedNavItem(item);
   };
 
   return (
@@ -23,7 +23,7 @@ function Nav() {
           {navItems.map((item) => (
             <a
               key={item}
-              className={`nav-item ${navigationItem === item ? "active" : ""}`}
+              className={`nav-item ${selectedNavItem === item ? "active" : ""}`}
               onClick={() => onNavigationItemClick(item)}>
               {item}
             </a>
@@ -40,4 +40,4 @@ function Nav() {
   );
 }
 
-export default Nav;
+export default Navbar;
