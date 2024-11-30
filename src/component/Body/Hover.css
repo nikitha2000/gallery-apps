@@ -56,3 +56,21 @@ img {
   width: 24px;
   fill: black;
 }
+
+.heart-button {
+  background: #fcf7f7;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-self: flex-end;
+  align-items: center;
+  border-radius: 6px;
+}
+
+.heart-button.favourite img {
+  background-color: red;
+}

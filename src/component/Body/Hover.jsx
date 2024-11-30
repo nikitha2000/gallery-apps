@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Hover.css";
 import Button from "../Button";
 
-const HoverButtons = ({ isHovered }) => {
+const HoverButtons = ({ isHovered, onAddToFavourites, image }) => {
+  const [isFavourites, setIsFavourite] = useState(false);
+
+  const handleHeartClick = () => {
+    setIsFavourite(!isFavourites);
+  };
+
+  // if (!isFavourites) {
+  //   onAddToFavourites(image);
+  // }
+
   return (
     <div className={`hover-buttons ${isHovered ? "show" : ""}`}>
       {isHovered && (
@@ -13,7 +23,8 @@ const HoverButtons = ({ isHovered }) => {
           />
           <Button
             label={<img src="/asset/heart.svg" alt="Heart Icon" />}
-            className="save-button"
+            className={`heart-button ${isFavourites ? "favourite" : ""}`}
+            onClick={handleHeartClick}
           />
         </div>
       )}
