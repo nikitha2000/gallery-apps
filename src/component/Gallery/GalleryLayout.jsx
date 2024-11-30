@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import PhotoItem from "./PhotoItem";
 import "./GalleryLayout.css";
 
 const Photos = () => {
@@ -29,9 +30,7 @@ const Photos = () => {
   return (
     <div className="photos-container">
       {photos.map((photo) => (
-        <div key={photo.id} className="photo-item">
-          <img src={photo.thumbnailUrl} alt={photo.title} />
-        </div>
+        <PhotoItem key={photo.id} photo={photo} />
       ))}
     </div>
   );
