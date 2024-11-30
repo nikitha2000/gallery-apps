@@ -1,29 +1,40 @@
-import React from "react";
-import "./PhotoItem..css";
+import React, { useState } from "react";
 import Button from "../Button";
+import "./PhotoItem.css";
 
-const PhotoItem = ({ photo, hoveredImageId, onMouseEnter, onMouseLeave }) => {
+const PhotoItem = ({ photo }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
   return (
     <div
       className="photo-item"
-      onMouseEnter={() => onMouseEnter(photo.id)}
-      onMouseLeave={onMouseLeave}>
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}>
       <img src={photo.thumbnailUrl} alt={photo.title} />
 
-      {hoveredImageId === photo.id && (
-        <div className="hover-buttons show">
-          <div className="top-left-button">
+      {isHovered && (
+        <div className="hover-buttons">
+          <div className="top-right-container">
             <Button
               label={<img src="/asset/save.svg" alt="Save Icon" />}
-              className="save-button"
+              className="action-button"
             />
             <Button
-              label={<img src="/asset/heart.svg" alt="Heart Icon" />}
-              className="save-button"
+              label={<img src="/asset/heart.svg" alt="Favourite Icon" />}
+              className="favourite-button"
             />
           </div>
-          <div className="bottom-left">
-            <Button label={" Download"} className="download-button" />
+          <div className="bottom-right-container">
+            <span className="image-title">{photo.title}</span>
+            <Button label="Download" className="download-button" />
           </div>
         </div>
       )}

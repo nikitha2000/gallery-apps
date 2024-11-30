@@ -28,12 +28,13 @@
   padding: 10px;
   opacity: 0;
 }
-.top-left-button {
+
+.top-right-container {
   display: flex;
   gap: 10px;
 }
 
-.save-button {
+.action-button {
   background: #fcf7f7;
   color: white;
   border: none;
@@ -45,6 +46,10 @@
   align-self: flex-end;
   align-items: center;
   border-radius: 6px;
+}
+
+.bottom-right-container {
+  bottom: 30px;
 }
 
 .download-button {
@@ -59,6 +64,7 @@
   border: none;
   font-size: 16px;
 }
+
 .download-button img {
   fill: white;
   z-index: 1;
@@ -74,7 +80,7 @@ img {
   fill: black;
 }
 
-.heart-button {
+.favourite-button {
   background: #fcf7f7;
   color: white;
   border: none;
@@ -86,4 +92,19 @@ img {
   align-self: flex-end;
   align-items: center;
   border-radius: 6px;
+}
+
+.image-title {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  color: white;
+  display: block;
+  width: auto;
+  max-width: calc(100% - 300px);
+  border: none;
+  font-size: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
