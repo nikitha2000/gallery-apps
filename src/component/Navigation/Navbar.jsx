@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "../Button";
 import "./Navbar.css";
 
-function Navbar({ onNavItemSelect }) {
+function Navbar() {
   const [selectedNavItem, setSelectedNavItem] = useState("Home");
   const navItems = [
     "Home",

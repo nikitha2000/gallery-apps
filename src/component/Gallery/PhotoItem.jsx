@@ -23,22 +23,21 @@ const PhotoItem = ({ photo, onToggleFavourite }) => {
       onMouseLeave={handleMouseLeave}>
       <img src={photo.thumbnailUrl} alt={photo.title} />
 
-      {isHovered(
+      {isHovered && (
         <div className="hover-buttons">
           <div className="top-right-container">
             <Button
               label={<img src="/asset/save.svg" alt="Save Icon" />}
-              className="save-button"
+              className="action-button"
             />
             <Button
-              label={<img src="/asset/heart.svg" alt="favourite Icon" />}
+              label={<img src="/asset/heart.svg" alt="Favourite Icon" />}
               className={favouriteButtonClass}
-              onClick={() => onToggleFavourite(photo.id)}
             />
           </div>
           <div className="bottom-right-container">
             <span className="image-title">{photo.title}</span>
-            <Button label={" Download"} className="download-button" />
+            <Button label="Download" className="download-button" />
           </div>
         </div>
       )}

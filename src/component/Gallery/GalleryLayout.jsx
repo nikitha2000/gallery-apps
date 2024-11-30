@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import PhotoItem from "./PhotoItem";
-import Favourites from "../Favourites/Favourites"; // Adjust relative import path
+import Favourites from "../Favourites/Favourites";
 import Navbar from "../Navigation/Navbar";
 import "./GalleryLayout.css";
 
@@ -16,10 +16,10 @@ const Photos = () => {
         const response = await axios.get(
           "https://jsonplaceholder.typicode.com/photos"
         );
-        // Ensure favourites property exists for all photos
+
         const updatedPhotos = response.data.map((photo) => ({
           ...photo,
-          favourites: photo.favourites || false, // Add 'favourites' if not present
+          favourites: photo.favourites || false,
         }));
         setPhotos(updatedPhotos);
       } catch (error) {
