@@ -7,7 +7,6 @@ import "./GalleryLayout.css";
 
 const Photos = () => {
   const [photos, setPhotos] = useState([]);
-  const [hoveredImageId, setHoveredImageId] = useState(null);
   const [error, setError] = useState(null);
   const [selectedNavItem, setSelectedNavItem] = useState("Home");
 
@@ -36,14 +35,6 @@ const Photos = () => {
     return <div>{error}</div>;
   }
 
-  const handleMouseEnter = (id) => {
-    setHoveredImageId(id);
-  };
-
-  const handleMouseLeave = () => {
-    setHoveredImageId(null);
-  };
-
   const handleToggleFavourite = (id) => {
     setPhotos((prevPhotos) =>
       prevPhotos.map((photo) =>
@@ -60,21 +51,13 @@ const Photos = () => {
     <>
       <Navbar onNavItemSelect={handleNavItemSelect} />
       {selectedNavItem === "Favourites" ? (
-        <Favourites
-          photos={photos}
-          hoveredImageId={hoveredImageId}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        />
+        <Favourites photos={photos} />
       ) : (
         <div className="photos-container">
           {photos.map((photo) => (
             <PhotoItem
               key={photo.id}
               photo={photo}
-              hoveredImageId={hoveredImageId}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
               onToggleFavourite={handleToggleFavourite}
             />
           ))}
