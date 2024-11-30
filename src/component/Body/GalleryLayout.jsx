@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Hover from "./Hover";
+import PhotoItem from "./PhotoItem";
 import "./GalleryLayout.css";
 
 const Photos = () => {
@@ -39,14 +39,13 @@ const Photos = () => {
   return (
     <div className="photos-container">
       {photos.map((photo) => (
-        <div
+        <PhotoItem
           key={photo.id}
-          className="photo-item"
-          onMouseEnter={() => handleMouseEnter(photo.id)}
-          onMouseLeave={() => handleMouseLeave}>
-          <img src={photo.thumbnailUrl} alt={photo.title} />
-          {hoveredImageId === photo.id && <Hover isHovered={true} />}
-        </div>
+          photo={photo}
+          hoveredImageId={hoveredImageId}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        />
       ))}
     </div>
   );
