@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "../Button";
 import "./Navbar.css";
 
-function Navbar() {
+function Navbar({ onNavItemSelect }) {
   const [selectedNavItem, setSelectedNavItem] = useState("Home");
   const navItems = [
     "Home",
@@ -12,8 +12,9 @@ function Navbar() {
     "Favourites",
   ];
 
-  const onNavigationItemClick = (item) => {
+  const onNavItemClick = (item) => {
     setSelectedNavItem(item);
+    onNavItemSelect(item);
   };
 
   return (
@@ -24,7 +25,7 @@ function Navbar() {
             <a
               key={item}
               className={`nav-item ${selectedNavItem === item ? "active" : ""}`}
-              onClick={() => onNavigationItemClick(item)}>
+              onClick={() => onNavItemClick(item)}>
               {item}
             </a>
           ))}
