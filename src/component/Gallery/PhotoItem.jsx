@@ -12,6 +12,7 @@ const PhotoItem = ({ photo, onToggleFavourite }) => {
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
+
   const favouriteButtonClass = photo.favourites
     ? "favourite-button active"
     : "favourite-button";
@@ -33,6 +34,7 @@ const PhotoItem = ({ photo, onToggleFavourite }) => {
             <Button
               label={<img src="/asset/heart.svg" alt="Favourite Icon" />}
               className={favouriteButtonClass}
+              onClick={() => onToggleFavourite(photo.id)}
             />
           </div>
           <div className="bottom-right-container">

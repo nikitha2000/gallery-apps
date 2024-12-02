@@ -19,7 +19,7 @@ const Photos = () => {
 
         const updatedPhotos = response.data.map((photo) => ({
           ...photo,
-          favourites: photo.favourites || false,
+          favourites: false,
         }));
         setPhotos(updatedPhotos);
       } catch (error) {
@@ -51,7 +51,7 @@ const Photos = () => {
     <>
       <Navbar onNavItemSelect={handleNavItemSelect} />
       {selectedNavItem === "Favourites" ? (
-        <Favourites photos={photos} />
+        <Favourites photos={photos} onToggleFavourite={handleToggleFavourite} />
       ) : (
         <div className="photos-container">
           {photos.map((photo) => (
