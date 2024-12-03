@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import PhotoItem from "./PhotoItem";
 import Favourites from "../Favourites/Favourites";
 import Navbar from "../Navigation/Navbar";
+import PhotoItem from "./PhotoItem";
 import "./GalleryLayout.css";
 
 const Photos = () => {
@@ -47,11 +47,16 @@ const Photos = () => {
     setSelectedNavItem(item);
   };
 
+  const sortedFavouritesPhotos = photos.filter((photo) => photo.favourites);
+
   return (
     <>
       <Navbar onNavItemSelect={handleNavItemSelect} />
       {selectedNavItem === "Favourites" ? (
-        <Favourites photos={photos} onToggleFavourite={handleToggleFavourite} />
+        <Favourites
+          photos={sortedFavouritesPhotos}
+          onToggleFavourite={handleToggleFavourite}
+        />
       ) : (
         <div className="photos-container">
           {photos.map((photo) => (
