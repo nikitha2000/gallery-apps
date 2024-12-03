@@ -108,3 +108,7 @@ img {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.favourite-button.active {
+  background-color: red;
+}

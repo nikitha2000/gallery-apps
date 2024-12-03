@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "../Button";
 import "./PhotoItem.css";
 
-const PhotoItem = ({ photo }) => {
+const PhotoItem = ({ photo, onToggleFavourite }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -12,6 +12,10 @@ const PhotoItem = ({ photo }) => {
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
+
+  const favouriteButtonClass = photo.favourites
+    ? "favourite-button active"
+    : "favourite-button";
 
   return (
     <div
@@ -29,7 +33,8 @@ const PhotoItem = ({ photo }) => {
             />
             <Button
               label={<img src="/asset/heart.svg" alt="Favourite Icon" />}
-              className="favourite-button"
+              className={favouriteButtonClass}
+              onClick={() => onToggleFavourite(photo.id)}
             />
           </div>
           <div className="bottom-right-container">
