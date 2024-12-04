@@ -68,10 +68,7 @@ const Photos = () => {
             <PhotoItem
               key={photo.id}
               photo={photo}
-              onToggleFavourite={(id) => {
-                console.log("handleToggleFavourite called with id:", id);
-                handleToggleFavourite(id);
-              }}
+              onToggleFavourite={handleToggleFavourite}
             />
           ))}
         </div>
