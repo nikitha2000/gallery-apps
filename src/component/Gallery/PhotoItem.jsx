@@ -14,7 +14,6 @@ const PhotoItem = ({ photo, onToggleFavourite }) => {
   };
 
   const handleClick = () => {
-    console.log("Photo ID:", photo.id);
     if (typeof onToggleFavourite === "function") {
       onToggleFavourite(photo.id);
     } else {

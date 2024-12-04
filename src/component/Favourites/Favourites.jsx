@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
+import toggleFavourite from "../Gallery/toggleFavourite";
 import PhotoItem from "../Gallery/PhotoItem";
 
-const Favourites = (onToggleFavourite) => {
+const Favourites = () => {
   const [favouritePhotos, setFavouritePhotos] = useState([]);
 
   useEffect(() => {
@@ -11,14 +12,7 @@ const Favourites = (onToggleFavourite) => {
   }, []);
 
   const handleToggleFavourite = (id) => {
-    const updatedPhotos = favouritePhotos.map((photo) =>
-      photo.id === id ? { ...photo, favourites: !photo.favourites } : photo
-    );
-
-    const newFavourites = updatedPhotos.filter((photo) => photo.favourites);
-    localStorage.setItem("favourites", JSON.stringify(newFavourites));
-
-    setFavouritePhotos(newFavourites);
+    setFavouritePhotos((prevPhotos) => toggleFavourite(prevPhotos, id));
   };
 
   if (!favouritePhotos || favouritePhotos.length === 0) {

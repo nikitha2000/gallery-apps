@@ -1,23 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import Button from "../Button";
 import "./Navbar.css";
 
-function Navbar({ onNavItemSelect }) {
+function Navbar({ initialSelectedItem = "home", onNavItemSelect }) {
   const [selectedNavItem, setSelectedNavItem] = useState("Home");
 
   const navItems = [
     { name: "Home", path: "/" },
-    { name: "Videos", path: "/videos" },
-    { name: "Leaderboard", path: "/leaderboard" },
-    { name: "Challenges", path: "/challenges" },
+    { name: "Photos", path: "/photos" },
     { name: "Favourites", path: "/favourites" },
   ];
 
   const onNavItemClick = (item) => {
-    setSelectedNavItem(item);
-    onNavItemSelect(item);
+    setSelectedNavItem(item.name);
+    if (onNavItemSelect) {
+      onNavItemSelect(item.name);
+    }
   };
+  useEffect(() => {
+    setSelectedNavItem(initialSelectedItem);
+  }, [initialSelectedItem]);
 
   return (
     <>
