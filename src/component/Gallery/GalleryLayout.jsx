@@ -36,11 +36,16 @@ const Photos = () => {
   }
 
   const handleToggleFavourite = (id) => {
-    setPhotos((prevPhotos) =>
-      prevPhotos.map((photo) =>
+    setPhotos((prevPhotos) => {
+      const updatedPhotos = prevPhotos.map((photo) =>
         photo.id === id ? { ...photo, favourites: !photo.favourites } : photo
-      )
-    );
+      );
+
+      const favourites = updatedPhotos.filter((photo) => photo.favourites);
+      localStorage.setItem("favourites", JSON.stringify(favourites));
+
+      return updatedPhotos;
+    });
   };
 
   const handleNavItemSelect = (item) => {
@@ -63,7 +68,10 @@ const Photos = () => {
             <PhotoItem
               key={photo.id}
               photo={photo}
-              onToggleFavourite={handleToggleFavourite}
+              onToggleFavourite={(id) => {
+                console.log("handleToggleFavourite called with id:", id);
+                handleToggleFavourite(id);
+              }}
             />
           ))}
         </div>

@@ -1,15 +1,17 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import Button from "../Button";
 import "./Navbar.css";
 
 function Navbar({ onNavItemSelect }) {
   const [selectedNavItem, setSelectedNavItem] = useState("Home");
+
   const navItems = [
-    "Home",
-    "Videos",
-    "Leaderboard",
-    "Challenges",
-    "Favourites",
+    { name: "Home", path: "/" },
+    { name: "Videos", path: "/videos" },
+    { name: "Leaderboard", path: "/leaderboard" },
+    { name: "Challenges", path: "/challenges" },
+    { name: "Favourites", path: "/favourites" },
   ];
 
   const onNavItemClick = (item) => {
@@ -22,12 +24,15 @@ function Navbar({ onNavItemSelect }) {
       <div className="nav-container">
         <div className="nav-content">
           {navItems.map((item) => (
-            <a
-              key={item}
-              className={`nav-item ${selectedNavItem === item ? "active" : ""}`}
+            <NavLink
+              key={item.name}
+              to={item.path}
+              className={`nav-item ${
+                selectedNavItem === item.name ? "active" : ""
+              }`}
               onClick={() => onNavItemClick(item)}>
-              {item}
-            </a>
+              {item.name}
+            </NavLink>
           ))}
         </div>
       </div>

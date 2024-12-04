@@ -13,6 +13,15 @@ const PhotoItem = ({ photo, onToggleFavourite }) => {
     setIsHovered(false);
   };
 
+  const handleClick = () => {
+    console.log("onToggleFavourite:", onToggleFavourite);
+    if (typeof onToggleFavourite === "function") {
+      onToggleFavourite(photo.id);
+    } else {
+      console.error("onToggleFavourite is not a function");
+    }
+  };
+
   const favouriteButtonClass = photo.favourites
     ? "favourite-button active"
     : "favourite-button";
@@ -34,7 +43,7 @@ const PhotoItem = ({ photo, onToggleFavourite }) => {
             <Button
               label={<img src="/asset/heart.svg" alt="Favourite Icon" />}
               className={favouriteButtonClass}
-              onClick={() => onToggleFavourite(photo.id)}
+              onClick={handleClick}
             />
           </div>
           <div className="bottom-right-container">
