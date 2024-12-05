@@ -15,7 +15,7 @@ const Favourites = () => {
     setFavouritePhotos((prevPhotos) => toggleFavourite(prevPhotos, id));
   };
 
-  if (!favouritePhotos || favouritePhotos.length === 0) {
+  if (!favouritePhotos?.length) {
     return <div>No photos to display.</div>;
   }
 

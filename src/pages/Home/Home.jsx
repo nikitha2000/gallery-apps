@@ -6,8 +6,8 @@ function Home() {
   return (
     <>
       <Navbar />
-      <div class="home-conatiner">
-        <p class="home-banner">Welcome to Gallery App</p>
+      <div className="home-conatiner">
+        <p className="home-banner">Welcome to Gallery App</p>
       </div>
     </>
   );

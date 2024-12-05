@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Button from "../Button";
 import "./PhotoItem.css";
 
 const PhotoItem = ({ photo, onToggleFavourite }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const navigate = useNavigate();
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -14,9 +15,17 @@ const PhotoItem = ({ photo, onToggleFavourite }) => {
     setIsHovered(false);
   };
 
-  const handleClick = () => {
-    onToggleFavourite(photo.id);
+  const handleNavigate = () => {
     navigate(`/photos/${photo.id}`);
+  };
+
+  const handleClick = (e) => {
+    e.stopPropagation();
+    if (typeof onToggleFavourite === "function") {
+      onToggleFavourite(photo.id);
+    } else {
+      console.error("onToggleFavourite is not a function");
+    }
   };
 
   const favouriteButtonClass = photo.favourites
@@ -28,14 +37,10 @@ const PhotoItem = ({ photo, onToggleFavourite }) => {
       className="photo-item"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}>
-      <Link
-        to={`/photos/${photo.id}`}
-        onClick={() => console.log("Link clicked!")}>
-        <img src={photo.thumbnailUrl} alt={photo.title} />
-      </Link>
+      <img src={photo.thumbnailUrl} alt={photo.title} />
 
       {isHovered && (
-        <div className="hover-buttons">
+        <div className="hover-buttons" onClick={handleNavigate}>
           <div className="top-right-container">
             <Button
               label={<img src="/asset/save.svg" alt="Save Icon" />}
