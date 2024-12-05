@@ -8,7 +8,6 @@ import "./GalleryLayout.css";
 const Photos = () => {
   const [photos, setPhotos] = useState([]);
   const [error, setError] = useState(null);
-  const [selectedNavItem, setSelectedNavItem] = useState("Home");
 
   useEffect(() => {
     const fetchPhotos = async () => {
@@ -39,13 +38,8 @@ const Photos = () => {
     setPhotos((prevPhotos) => toggleFavourite(prevPhotos, id));
   };
 
-  const handleNavItemSelect = (item) => {
-    setSelectedNavItem(item);
-  };
-
   return (
     <>
-      <Navbar onNavItemSelect={handleNavItemSelect} />
       <div className="photos-container">
         {photos.map((photo) => (
           <PhotoItem
