@@ -5,7 +5,7 @@ import Navbar from "../component/Navigation/Navbar";
 function favouritePhotos() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Favourites />
     </>
   );
