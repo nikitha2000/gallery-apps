@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../Button";
 import "./PhotoItem.css";
 
@@ -14,11 +15,8 @@ const PhotoItem = ({ photo, onToggleFavourite }) => {
   };
 
   const handleClick = () => {
-    if (typeof onToggleFavourite === "function") {
-      onToggleFavourite(photo.id);
-    } else {
-      console.error("onToggleFavourite is not a function");
-    }
+    onToggleFavourite(photo.id);
+    navigate(`/photos/${photo.id}`);
   };
 
   const favouriteButtonClass = photo.favourites
@@ -30,7 +28,11 @@ const PhotoItem = ({ photo, onToggleFavourite }) => {
       className="photo-item"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}>
-      <img src={photo.thumbnailUrl} alt={photo.title} />
+      <Link
+        to={`/photos/${photo.id}`}
+        onClick={() => console.log("Link clicked!")}>
+        <img src={photo.thumbnailUrl} alt={photo.title} />
+      </Link>
 
       {isHovered && (
         <div className="hover-buttons">
