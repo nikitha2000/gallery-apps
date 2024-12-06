@@ -1,22 +1,18 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Favourites from "./pages/FavouritesPage.jsx";
-import Header from "./component/header/Header.jsx";
-import Home from "./pages/Home/Home.jsx";
-import Navbar from "./component/Navigation/Navbar.jsx";
-import Photos from "./pages/Photos.jsx";
-import PhotoDetails from "./component/Gallery/PhotoDetails.jsx";
+import Favourites from "./pages/FavouritesPage";
+import Header from "./component/header/Header";
+import Home from "./pages/Home/Home";
+import Navbar from "./component/Navigation/Navbar";
+import Photos from "./pages/Photos";
+import PhotoDetails from "./component/Gallery/PhotoDetails";
 import "./App.css";
 
 function App() {
-  const [selectedNavItem, setSelectedNavItem] = useState("Home");
-  const handleNavItemSelect = (item) => {
-    setSelectedNavItem(item);
-  };
   return (
     <Router>
       <Header />
-      <Navbar onNavItemSelect={handleNavItemSelect} />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/favourites" element={<Favourites />} />
