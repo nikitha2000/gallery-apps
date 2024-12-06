@@ -4,7 +4,7 @@ import PhotoItem from "./PhotoItem";
 import toggleFavourite from "./toggleFavourite";
 import "./GalleryLayout.css";
 
-const Photos = () => {
+const Photos = ({ searchQuery }) => {
   const [photos, setPhotos] = useState([]);
   const [error, setError] = useState(null);
 
@@ -15,7 +15,7 @@ const Photos = () => {
           "https://jsonplaceholder.typicode.com/photos"
         );
 
-        const updatedPhotos = response.data.map((photo) => ({
+        const updatedPhotos = response.data.slice(0, 20).map((photo) => ({
           ...photo,
           favourites: false,
         }));
@@ -37,10 +37,14 @@ const Photos = () => {
     setPhotos((prevPhotos) => toggleFavourite(prevPhotos, id));
   };
 
+  const filteredPhotos = photos.filter((photo) =>
+    photo.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <>
       <div className="photos-container">
-        {photos.map((photo) => (
+        {filteredPhotos.map((photo) => (
           <PhotoItem
             key={photo.id}
             photo={photo}

@@ -47,6 +47,7 @@ a {
     font-size: 14px !important;
     font-weight: 800 !important;
     color: black !important;
+    text-align: center;
   }
 
   .new-button {
@@ -143,4 +144,9 @@ input:focus,
 textarea:focus,
 select:focus {
   outline: none;
+}
+
+.search-img {
+  height: 40px !important;
+  width: 40px !important;
 }
