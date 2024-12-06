@@ -4,7 +4,7 @@ import axios from "axios";
 import "./PhotoDetails.css";
 
 const PhotoDetails = () => {
-  const { id } = useParams();
+  const { photoId } = useParams();
   const [photo, setPhoto] = useState(null);
   const [error, setError] = useState(null);
 
@@ -12,7 +12,7 @@ const PhotoDetails = () => {
     const fetchPhoto = async () => {
       try {
         const response = await axios.get(
-          `https://jsonplaceholder.typicode.com/photos/${id}`
+          `https://jsonplaceholder.typicode.com/photos/${photoId}`
         );
         setPhoto(response.data);
       } catch (error) {
@@ -22,7 +22,7 @@ const PhotoDetails = () => {
     };
 
     fetchPhoto();
-  }, [id]);
+  }, [photoId]);
 
   if (error) {
     return <div>{error}</div>;

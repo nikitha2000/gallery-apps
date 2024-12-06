@@ -15,11 +15,11 @@ const PhotoItem = ({ photo, onToggleFavourite }) => {
     setIsHovered(false);
   };
 
-  const handleNavigate = () => {
+  const handlePhotoItemNavigate = () => {
     navigate(`/photos/${photo.id}`);
   };
 
-  const handleClick = (e) => {
+  const handleFavouriteIconClick = (e) => {
     e.stopPropagation();
     if (typeof onToggleFavourite === "function") {
       onToggleFavourite(photo.id);
@@ -40,7 +40,7 @@ const PhotoItem = ({ photo, onToggleFavourite }) => {
       <img src={photo.thumbnailUrl} alt={photo.title} />
 
       {isHovered && (
-        <div className="hover-buttons" onClick={handleNavigate}>
+        <div className="hover-buttons" onClick={handlePhotoItemNavigate}>
           <div className="top-right-container">
             <Button
               label={<img src="/asset/save.svg" alt="Save Icon" />}
@@ -49,7 +49,7 @@ const PhotoItem = ({ photo, onToggleFavourite }) => {
             <Button
               label={<img src="/asset/heart.svg" alt="Favourite Icon" />}
               className={favouriteButtonClass}
-              onClick={handleClick}
+              onClick={handleFavouriteIconClick}
             />
           </div>
           <div className="bottom-right-container">
