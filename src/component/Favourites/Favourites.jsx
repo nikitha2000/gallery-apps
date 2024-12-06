@@ -1,14 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import toggleFavourite from "../Gallery/toggleFavourite";
 import PhotoItem from "../Gallery/PhotoItem";
 
-const Favourites = ({ photos, onToggleFavourite }) => {
+const Favourites = () => {
+  const [favouritePhotos, setFavouritePhotos] = useState([]);
+
+  useEffect(() => {
+    const storedFavourites =
+      JSON.parse(localStorage.getItem("favourites")) || [];
+    setFavouritePhotos(storedFavourites);
+  }, []);
+
+  const handleToggleFavourite = (id) => {
+    setFavouritePhotos((prevPhotos) => toggleFavourite(prevPhotos, id));
+  };
+
+  if (!favouritePhotos?.length) {
+    return <div>No photos to display.</div>;
+  }
+
   return (
     <div className="photos-container">
-      {photos.map((photo) => (
+      {favouritePhotos.map((photo) => (
         <PhotoItem
           key={photo.id}
           photo={photo}
-          onToggleFavourite={onToggleFavourite}
+          onToggleFavourite={handleToggleFavourite}
         />
       ))}
     </div>
