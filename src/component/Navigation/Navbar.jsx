@@ -39,8 +39,13 @@ function Navbar({ initialSelectedItem = "home", onNavItemSelect }) {
           ))}
         </div>
       </div>
+
       <div className="sub-heading">
         <h4 className="navbar-heading">New Stock Photos</h4>
+        <div className="search-container">
+          <input type="text" placeholder="Search for photos..." />
+          <img src="/asset/searchs.svg" />
+        </div>
         <div className="drop-down-button">
           <Button label="New" className="new-button" />
         </div>
