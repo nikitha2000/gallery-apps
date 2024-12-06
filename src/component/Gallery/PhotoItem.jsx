@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "../Button";
 import "./PhotoItem.css";
 
 const PhotoItem = ({ photo, onToggleFavourite }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const navigate = useNavigate();
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -13,7 +15,12 @@ const PhotoItem = ({ photo, onToggleFavourite }) => {
     setIsHovered(false);
   };
 
-  const handleClick = () => {
+  const handlePhotoItemNavigate = () => {
+    navigate(`/photos/${photo.id}`);
+  };
+
+  const handleFavouriteIconClick = (e) => {
+    e.stopPropagation();
     if (typeof onToggleFavourite === "function") {
       onToggleFavourite(photo.id);
     } else {
@@ -33,7 +40,7 @@ const PhotoItem = ({ photo, onToggleFavourite }) => {
       <img src={photo.thumbnailUrl} alt={photo.title} />
 
       {isHovered && (
-        <div className="hover-buttons">
+        <div className="hover-buttons" onClick={handlePhotoItemNavigate}>
           <div className="top-right-container">
             <Button
               label={<img src="/asset/save.svg" alt="Save Icon" />}
@@ -42,7 +49,7 @@ const PhotoItem = ({ photo, onToggleFavourite }) => {
             <Button
               label={<img src="/asset/heart.svg" alt="Favourite Icon" />}
               className={favouriteButtonClass}
-              onClick={handleClick}
+              onClick={handleFavouriteIconClick}
             />
           </div>
           <div className="bottom-right-container">
