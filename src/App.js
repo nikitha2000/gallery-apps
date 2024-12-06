@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Favourites from "./pages/FavouritesPage";
 import Header from "./component/header/Header";
-import Home from "./pages/Home/Home";
 import Navbar from "./component/Navigation/Navbar";
+import Favourites from "./pages/FavouritesPage";
+import Home from "./pages/Home/Home";
 import Photos from "./pages/Photos";
 import "./App.css";
 
