@@ -18,11 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/favourites" element={<Favourites />} />
-<<<<<<< HEAD
         <Route path="/photos" element={<Photos searchQuery={searchQuery} />} />
-=======
-        <Route path="/photos" element={<Photos />} />
->>>>>>> 140352e4bfb131b3ee0259800350470cfc253006
         <Route path="/photos/:photoId" element={<PhotoDetails />} />
       </Routes>
     </Router>
