@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import toggleFavourite from "../Gallery/toggleFavourite";
 import PhotoItem from "../Gallery/PhotoItem";
+import toggleFavourite from "../Gallery/toggleFavourite";
 
 const Favourites = () => {
   const [favouritePhotos, setFavouritePhotos] = useState([]);

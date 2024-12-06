@@ -3,23 +3,15 @@ import { NavLink } from "react-router-dom";
 import Button from "../Button";
 import "./Navbar.css";
 
-function Navbar({ initialSelectedItem = "home", onNavItemSelect }) {
+function Navbar({ initialSelectedItem = "home" }) {
   const [selectedNavItem, setSelectedNavItem] = useState("Home");
 
   const navItems = [
     { name: "Home", path: "/" },
-    { name: "Videos", path: "/videos" },
-    { name: "Leaderboard", path: "/leaderboard" },
-    { name: "Challenges", path: "/challenges" },
+    { name: "Photos", path: "/photos" },
     { name: "Favourites", path: "/favourites" },
   ];
 
-  const onNavItemClick = (item) => {
-    setSelectedNavItem(item.name);
-    if (onNavItemSelect) {
-      onNavItemSelect(item.name);
-    }
-  };
   useEffect(() => {
     setSelectedNavItem(initialSelectedItem);
   }, [initialSelectedItem]);
@@ -34,8 +26,7 @@ function Navbar({ initialSelectedItem = "home", onNavItemSelect }) {
               to={item.path}
               className={`nav-item ${
                 selectedNavItem === item.name ? "active" : ""
-              }`}
-              onClick={() => onNavItemClick(item)}>
+              }`}>
               {item.name}
             </NavLink>
           ))}
