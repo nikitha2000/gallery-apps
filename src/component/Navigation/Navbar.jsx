@@ -18,6 +18,7 @@ function Navbar({ initialSelectedItem = "home", onNavItemSelect }) {
       onNavItemSelect(item.name);
     }
   };
+
   useEffect(() => {
     setSelectedNavItem(initialSelectedItem);
   }, [initialSelectedItem]);
