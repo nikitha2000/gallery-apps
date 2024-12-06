@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Navbar from "../Navigation/Navbar";
 import PhotoItem from "./PhotoItem";
 import toggleFavourite from "./toggleFavourite";
 import "./GalleryLayout.css";
