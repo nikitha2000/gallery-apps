@@ -17,7 +17,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/favourites" element={<Favourites />} />
         <Route path="/photos" element={<Photos />} />
-        <Route path="/photos/:id" element={<PhotoDetails />} />
+        <Route path="/photos/:photoId" element={<PhotoDetails />} />
       </Routes>
     </Router>
   );
