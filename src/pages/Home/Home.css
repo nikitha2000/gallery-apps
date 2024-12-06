@@ -1,0 +1,13 @@
+.home-banner {
+  height: 590px;
+  width: auto;
+  background-image: url(/public/asset/homebg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: rgba(52, 24, 63, 0.74);
+  font-family: "Dancing Script", sans-serif, Arial, Helvetica, sans-serif;
+  font-size: 40px;
+}
