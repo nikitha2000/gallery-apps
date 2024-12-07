@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import GalleryLayout from "../Gallery/GalleryLayout";
 import PhotoItem from "../Gallery/PhotoItem";
 import toggleFavourite from "../Gallery/toggleFavourite";
 

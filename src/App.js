@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./component/header/Index";
-import Navbar from "./component/Navigation/Index";
+import Header from "./component/header";
+import Navbar from "./component/Navigation";
 import PhotoDetails from "./component/Gallery/PhotoDetails";
-import Favourites from "./pages/FavouritePage/Index";
-import Home from "./pages/Home/Index";
-import Photos from "./pages/Photos/Index";
+import Favourites from "./pages/FavouritePage";
+import Home from "./pages/Home";
+import Photos from "./pages/Photos";
 import "./App.css";
 
 function App() {
