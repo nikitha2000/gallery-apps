@@ -18,13 +18,9 @@ const FavouritePhotos = () => {
   }, []);
 
   const handleToggleFavourite = (id) => {
-    const updatedFavourites = toggleFavourite(favouritePhotos, id);
-    setFavouritePhotos(updatedFavourites);
-    localStorage.setItem(
-      "favourites",
-      JSON.stringify(updatedFavourites.filter((photo) => photo.favourites))
-    );
+    setFavouritePhotos((prevPhotos) => toggleFavourite(prevPhotos, id));
   };
+
   return (
     <GalleryLayout
       photos={favouritePhotos}
