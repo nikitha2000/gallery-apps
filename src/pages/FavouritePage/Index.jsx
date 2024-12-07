@@ -1,5 +1,5 @@
 import React from "react";
-import Favourites from "../component/Favourites/Favourites";
+import Favourites from "../../component/Favourites/";
 
 function favouritePhotos() {
   return (

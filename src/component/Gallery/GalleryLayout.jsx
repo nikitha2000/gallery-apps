@@ -4,7 +4,7 @@ import PhotoItem from "./PhotoItem";
 import toggleFavourite from "./toggleFavourite";
 import "./GalleryLayout.css";
 
-const Photos = ({ searchQuery }) => {
+const GalleryLayout = ({ searchQuery }) => {
   const [photos, setPhotos] = useState([]);
   const [error, setError] = useState(null);
 
@@ -56,4 +56,4 @@ const Photos = ({ searchQuery }) => {
   );
 };
 
-export default Photos;
+export default GalleryLayout;

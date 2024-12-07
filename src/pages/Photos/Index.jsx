@@ -1,5 +1,5 @@
 import React from "react";
-import GalleryLayout from "../component/Gallery/GalleryLayout";
+import GalleryLayout from "../../component/Gallery/GalleryLayout";
 
 function Photos({ searchQuery }) {
   return <GalleryLayout searchQuery={searchQuery} />;
