@@ -24,13 +24,22 @@ function Photos({ searchQuery }) {
     fetchPhotos();
   }, []);
 
+  if (error) {
+    return <div>{error}</div>;
+  }
+
   const handleToggleFavourite = (id) => {
     setPhotos((prevPhotos) => toggleFavourite(prevPhotos, id));
   };
+
+  const filteredPhotos = photos.filter((photo) =>
+    photo.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <GalleryLayout
       searchQuery={searchQuery}
-      photos={photos}
+      photos={filteredPhotos}
       error={error}
       onToggleFavourite={handleToggleFavourite}
     />

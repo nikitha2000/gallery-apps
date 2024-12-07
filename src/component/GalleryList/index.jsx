@@ -2,23 +2,10 @@ import React from "react";
 import PhotoItem from "./PhotoItem";
 import "./GalleryLayout.css";
 
-const GalleryLayout = ({
-  searchQuery = "",
-  photos,
-  error,
-  onToggleFavourite,
-}) => {
-  if (error) {
-    return <div>{error}</div>;
-  }
-
-  const filteredPhotos = photos.filter((photo) =>
-    photo.title.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
+const GalleryLayout = ({ photos, onToggleFavourite }) => {
   return (
     <div className="photos-container">
-      {filteredPhotos.map((photo) => (
+      {photos.map((photo) => (
         <PhotoItem
           key={photo.id}
           photo={photo}
