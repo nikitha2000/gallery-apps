@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import "./PhotoDetails.css";
+//import "./PhotoDetails.css";
 
 const PhotoDetails = () => {
   const { photoId } = useParams();
@@ -33,9 +33,13 @@ const PhotoDetails = () => {
   }
 
   return (
-    <div className="photo-details">
-      <h2>{photo.title}</h2>
-      <img className="photo-card" src={photo.thumbnailUrl} alt={photo.title} />
+    <div className="flex flex-col items-center justify-center h-auto width-auto ">
+      <h2 className="pb-[10px]">{photo.title}</h2>
+      <img
+        className="h-[250px] w-[250px] md:h-[499px] md:w-[499px]"
+        src={photo.thumbnailUrl}
+        alt={photo.title}
+      />
     </div>
   );
 };
