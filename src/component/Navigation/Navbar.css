@@ -46,7 +46,6 @@ a {
   .navbar-heading {
     font-size: 14px !important;
     font-weight: 800 !important;
-    color: black !important;
     text-align: center;
   }
 
@@ -126,6 +125,7 @@ a {
   border: 2px solid rgba(84, 61, 104, 0.295);
   border-radius: 10px;
   padding: 10px;
+  box-sizing: content-box;
 }
 
 .search-container input {
@@ -140,9 +140,7 @@ a {
   align-self: center;
 }
 
-input:focus,
-textarea:focus,
-select:focus {
+input:focus {
   outline: none;
 }
 

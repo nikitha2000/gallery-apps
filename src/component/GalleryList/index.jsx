@@ -1,10 +1,10 @@
 import React from "react";
 import PhotoItem from "./PhotoItem";
-import "./GalleryLayout.css";
+//import "./GalleryLayout.css";
 
 const GalleryLayout = ({ photos, onToggleFavourite }) => {
   return (
-    <div className="photos-container">
+    <div className="grid grid-cols-1 gap-4 p-[20px]  md:grid-cols-2 lg:grid-cols-4">
       {photos.map((photo) => (
         <PhotoItem
           key={photo.id}
