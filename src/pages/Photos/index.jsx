@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import GalleryLayout from "../../component/GalleryList";
 import toggleFavourite from "../../component/GalleryList/toggleFavourite";
+import GalleryLayout from "../../component/GalleryList";
 
 function Photos({ searchQuery }) {
   const [photos, setPhotos] = useState([]);

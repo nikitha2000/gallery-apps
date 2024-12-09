@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import PhotoDetails from "./component/GalleryList/PhotoDetails";
 import Header from "./component/header";
 import Navbar from "./component/Navigation";
-import PhotoDetails from "./component/GalleryList/PhotoDetails";
 import Favourites from "./pages/Favourite";
 import Home from "./pages/Home";
 import Photos from "./pages/Photos";
