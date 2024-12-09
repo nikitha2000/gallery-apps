@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { Photo } from "../../type";
 import toggleFavourite from "../../component/GalleryList/toggleFavourite";
 import GalleryLayout from "../../component/GalleryList";
 
 const FavouritePhotos = () => {
-  const [favouritePhotos, setFavouritePhotos] = useState([]);
-  const [error, setError] = useState(null);
+  const [favouritePhotos, setFavouritePhotos] = useState<Photo[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     try {
-      const storedFavourites =
-        JSON.parse(localStorage.getItem("favourites")) || [];
+      const storedFavourites = JSON.parse(localStorage.getItem("favourites") || "[]") as Photo[];
       setFavouritePhotos(storedFavourites);
     } catch (error) {
       console.error("Error fetching favourite photos:", error);
@@ -17,7 +17,7 @@ const FavouritePhotos = () => {
     }
   }, []);
 
-  const handleToggleFavourite = (id) => {
+  const handleToggleFavourite = (id:number) => {
     setFavouritePhotos((prevPhotos) => toggleFavourite(prevPhotos, id));
   };
 

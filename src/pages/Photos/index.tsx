@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Photo } from "../../type"
 import toggleFavourite from "../../component/GalleryList/toggleFavourite";
 import GalleryLayout from "../../component/GalleryList";
 
-function Photos({ searchQuery }) {
-  const [photos, setPhotos] = useState([]);
-  const [error, setError] = useState(null);
+interface PhotosProps {
+    searchQuery: string; 
+}
+
+const Photos = ({ searchQuery }: PhotosProps ) => {
+  const [photos, setPhotos] = useState<Photo[]>([]);
+  const [error, setError] = useState<string | null>(null);
   useEffect(() => {
     const fetchPhotos = async () => {
       try {
@@ -14,7 +19,7 @@ function Photos({ searchQuery }) {
         );
         const updatedPhotos = response.data
           .slice(0, 20)
-          .map((photo) => ({ ...photo, favourites: false }));
+          .map((photo:Photo) => ({ ...photo, favourites: false }));
         setPhotos(updatedPhotos);
       } catch (error) {
         console.error("Error fetching photos:", error);
@@ -28,7 +33,7 @@ function Photos({ searchQuery }) {
     return <div>{error}</div>;
   }
 
-  const handleToggleFavourite = (id) => {
+  const handleToggleFavourite = (id:number) => {
     setPhotos((prevPhotos) => toggleFavourite(prevPhotos, id));
   };
 
@@ -38,7 +43,7 @@ function Photos({ searchQuery }) {
 
   return (
     <GalleryLayout
-      searchQuery={searchQuery}
+      //searchQuery={searchQuery}
       photos={filteredPhotos}
       error={error}
       onToggleFavourite={handleToggleFavourite}

@@ -1,12 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import Button from "../Button";
+import Button from "../Button/Button";
 import "./Navbar.css";
 
-function Navbar({ initialSelectedItem = "home", setSearchQuery }) {
-  const [selectedNavItem, setSelectedNavItem] = useState("Home");
+interface NavItem 
+{ 
+  name: string; 
+  path: string; 
+}   
 
-  const navItems = [
+interface NavbarProps { 
+  initialSelectedItem: string; 
+  setSearchQuery: (query: string) => void; 
+}
+
+const Navbar = ({ initialSelectedItem = "home", setSearchQuery }:NavbarProps) =>  {
+  const [selectedNavItem, setSelectedNavItem] = useState<string>("Home");
+
+  const navItems: NavItem[] = [
     { name: "Home", path: "/" },
     { name: "Photos", path: "/photos" },
     { name: "Favourites", path: "/favourites" },
@@ -16,7 +27,7 @@ function Navbar({ initialSelectedItem = "home", setSearchQuery }) {
     setSelectedNavItem(initialSelectedItem);
   }, [initialSelectedItem]);
 
-  const handleSearchChange = (event) => {
+  const handleSearchChange = (event:React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
   };
 

@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import PhotoDetails from "./component/GalleryList/PhotoDetails";
-import Header from "./component/header";
+import PhotoDetails from "./component/PhotoDetails";
+import Header from "./component/header"
 import Navbar from "./component/Navigation";
 import Favourites from "./pages/Favourite";
 import Home from "./pages/Home";
 import Photos from "./pages/Photos";
 import "./App.css";
 
-function App() {
-  const [searchQuery, setSearchQuery] = useState("");
+const App = () => {
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   return (
     <Router>
       <Header />
-      <Navbar setSearchQuery={setSearchQuery} />
+      <Navbar setSearchQuery={setSearchQuery} initialSelectedItem="home"/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/favourites" element={<Favourites />} />
@@ -23,6 +23,6 @@ function App() {
       </Routes>
     </Router>
   );
-}
+};
 
 export default App;

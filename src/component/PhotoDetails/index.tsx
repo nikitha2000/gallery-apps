@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { Photo } from "../../type";
 import "./PhotoDetails.css";
 
 const PhotoDetails = () => {
-  const { photoId } = useParams();
-  const [photo, setPhoto] = useState(null);
-  const [error, setError] = useState(null);
+  const { photoId } = useParams<{ photoId: string }>();
+  const [photo, setPhoto] = useState<Photo | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchPhoto = async () => {
