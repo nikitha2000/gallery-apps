@@ -1,4 +1,6 @@
-const toggleFavourite = (photos, id) => {
+import { Photo } from "../../type";
+
+const toggleFavourite = (photos:Photo[], id:number) => {
   const updatedPhotos = photos.map((photo) =>
     photo.id === id ? { ...photo, favourites: !photo.favourites } : photo
   );
