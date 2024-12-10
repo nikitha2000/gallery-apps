@@ -22,15 +22,15 @@ function Navbar({ initialSelectedItem = "home", setSearchQuery }) {
   return (
     <>
       <div className="flex justify-center py-8">
-        <div className="flex overflow-auto whitespace-nowrap scrollbar-hide">
+        <div className="flex scrollbar-hide overflow-auto whitespace-nowrap ">
           {navItems.map((item) => (
             <NavLink
               key={item.name}
               to={item.path}
-              className={`flex items-center px-2.5 py-0 text-base font-poppins tracking-[1px] leading-[1.4] h-12 ${
+              className={`flex items-center h-12 px-2.5 py-0 text-base font-poppins tracking-wide leading-snug  ${
                 selectedNavItem === item.name
-                  ? "bg-black text-white rounded-[30px] font-semibold"
-                  : "bg-white text-[#4a4a4a] font-semibold"
+                  ? "bg-black text-white rounded-3xl font-semibold"
+                  : "bg-white text-darkGrey font-semibold"
               }`}
               onClick={() => setSelectedNavItem(item.name)}>
               {item.name}
@@ -39,27 +39,27 @@ function Navbar({ initialSelectedItem = "home", setSearchQuery }) {
         </div>
       </div>
 
-      <div className="block justify-between items-center pb-[30px] sm:block md:flex px-[15px] xl:px-[30px] 2xl:px-[80px]">
-        <h4 className="font-[600] font-poppins text-[20px] text-black tracking-[1px] leading-[1.4] pb-[20px] md: align-center pb-[0px]">
+      <div className="block justify-between items-center pb-8 sm:block md:flex px-4 xl:px-8 2xl:px-20">
+        <h4 className="font-semibold font-poppins text-xl text-black tracking-wide leading-sung pb-5 md: align-center pb-0">
           New Stock Photos
         </h4>
-        <div className="w-auto h-[30px] flex justify-center border-2 border-[#5441704b] rounded-[10px] p-[10px] box-content md:w-[500px]">
+        <div className="flex justify-center items-center w-auto h-8  border-2 border-purpleGrey rounded-lg p-2 box-content md:w-w-499">
           <input
             type="text"
             placeholder="Search for photos..."
             onChange={handleSearchChange}
-            className="border-none self-center w-full h-[30px] focus:outline-none"
+            className="self-center w-full h-8 border-none focus:outline-none"
           />
           <img
-            className="flex self-center h-[40px] w-[40px]"
+            className="flex self-center h-10 w-10"
             src="/asset/searchs.svg"
             alt="Search"
           />
         </div>
-        <div className="pt-[20px] md:pt-[0px] ">
+        <div className="pt-5 md:pt-0 ">
           <Button
             label="New"
-            className="bg-white flex flex-wrap justify-center items-center border border-[#dfdfe0] rounded-[6px] w-[90px] h-[46px] px-[20px] font-semibold text-[16px] text-black font-poppins "
+            className="bg-white flex flex-wrap justify-center items-center border border-lightGrey rounded-md w-24 h-12 px-5 font-semibold text-md text-black font-poppins "
           />
         </div>
       </div>

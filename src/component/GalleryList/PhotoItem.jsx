@@ -28,7 +28,7 @@ const PhotoItem = ({ photo, onToggleFavourite }) => {
     }
   };
 
-  const favouriteButtonClass = photo.favourites ? "bg-red-500" : "bg-[#fcf7f7]";
+  const favouriteButtonClass = photo.favourites ? "bg-red" : "bg-lightPink";
 
   return (
     <div
@@ -48,21 +48,21 @@ const PhotoItem = ({ photo, onToggleFavourite }) => {
           <div className="flex gap-2">
             <Button
               label={<img src="/asset/save.svg" alt="Save Icon" />}
-              className="bg-[#fcf7f7] text-white border-none p-2 cursor-pointer h-12 w-12 flex items-center justify-center rounded-md"
+              className="bg-lightPink text-white cursor-pointer p-2  h-12 w-12 flex items-center justify-center border-none rounded-md"
             />
             <Button
               label={<img src="/asset/heart.svg" alt="Favourite Icon" />}
-              className={`${favouriteButtonClass} text-white border-none p-2 cursor-pointer h-12 w-12 flex items-center justify-center rounded-md`}
+              className={`${favouriteButtonClass} text-white p-2 h-12 w-12 flex items-center justify-center border-none rounded-md cursor-pointer`}
               onClick={handleFavouriteIconClick}
             />
           </div>
-          <div className=" bottom-[30px]">
-            <span className="absolute bottom-7 left-7 text-white block w-auto max-w-[calc(100%-300px)] border-none text-[16px] overflow-hidden text-ellipsis whitespace-nowrap">
+          <div className=" bottom-8">
+            <span className="block absolute w-auto max-w-custom-calc bottom-7 left-7 text-base text-white text-ellipsis whitespace-nowrap border-none overflow-hidden">
               {photo.title}
             </span>
             <Button
               label="Download"
-              className="absolute bottom-[30px] right-[20px] bg-[#05a081] text-white h-12 rounded-full border-none text-lg justify-center"
+              className="absolute justify-center h-12 bottom-8 right-5 bg-green border-none rounded-full text-lg text-white "
             />
           </div>
         </div>

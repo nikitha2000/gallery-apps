@@ -33,10 +33,10 @@ const PhotoDetails = () => {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center h-auto width-auto ">
+    <div className="flex flex-col items-center justify-center h-auto w-auto ">
       <h2 className="pb-[10px]">{photo.title}</h2>
       <img
-        className="h-[250px] w-[250px] md:h-[499px] md:w-[499px]"
+        className="h-h-250 w-w-250 md:h-h-499 md:w-w-499"
         src={photo.thumbnailUrl}
         alt={photo.title}
       />

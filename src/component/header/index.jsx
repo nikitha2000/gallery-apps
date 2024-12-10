@@ -3,7 +3,7 @@ import React from "react";
 
 function Header() {
   return (
-    <header className="bg-[rgba(84,61,104,0.295)] text-[rgb(22,16,56)] text-center p-[30px] text-[30px] font-dancing shadow-[0_4px_6px_rgba(0,0,0,0.1)]">
+    <header className="text-darkBlue text-center text-3xl font-dancing p-8 bg-purpleGrey shadow-customShadow">
       ~Gallery App~
     </header>
   );
