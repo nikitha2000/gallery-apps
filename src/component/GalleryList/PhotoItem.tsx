@@ -1,16 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Photo } from "../../type"
 import Button from "../Button/Button";
 import "./PhotoItem.css";
-
-interface Photo { 
-  albumId: number; 
-  id: number; 
-  title: string; 
-  url: string; 
-  thumbnailUrl: string; 
-  favourites: boolean;
-}
 
 interface PhotoItemProps {
   photo: Photo; 
