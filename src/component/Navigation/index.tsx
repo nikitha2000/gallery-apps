@@ -3,14 +3,13 @@ import { NavLink } from "react-router-dom";
 import Button from "../Button/Button";
 import "./Navbar.css";
 
-interface NavItem 
-{ 
+interface NavItem { 
   name: string; 
   path: string; 
 }   
 
 interface NavbarProps { 
-  initialSelectedItem: string; 
+  initialSelectedItem:string; 
   setSearchQuery: (query: string) => void; 
 }
 
@@ -27,7 +26,7 @@ const Navbar = ({ initialSelectedItem = "home", setSearchQuery }:NavbarProps) =>
     setSelectedNavItem(initialSelectedItem);
   }, [initialSelectedItem]);
 
-  const handleSearchChange = (event:React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
   };
 

@@ -1,8 +1,8 @@
 import React from "react";
 import "./Button.css";
 
-interface ButtonProps 
-{ label: React.ReactNode; 
+interface ButtonProps{ 
+  label: React.ReactNode; 
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void; 
   className?: string; 
 }

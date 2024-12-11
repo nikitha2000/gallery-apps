@@ -3,7 +3,7 @@ import { Photo } from "../../type"
 import PhotoItem from "./PhotoItem";
 import "./GalleryLayout.css";
 
-interface GalleryLayoutProps {
+interface GalleryLayoutProps{
    photos: Photo[];
    error: string | null;
    onToggleFavourite:(id:number) => void;

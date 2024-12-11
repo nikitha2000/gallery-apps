@@ -8,7 +8,7 @@ interface PhotosProps {
     searchQuery: string; 
 }
 
-const Photos = ({ searchQuery }: PhotosProps ) => {
+const Photos = ({ searchQuery }:PhotosProps) => {
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [error, setError] = useState<string | null>(null);
   useEffect(() => {
@@ -42,8 +42,7 @@ const Photos = ({ searchQuery }: PhotosProps ) => {
   );
 
   return (
-    <GalleryLayout
-      //searchQuery={searchQuery}
+    <GalleryLayout   
       photos={filteredPhotos}
       error={error}
       onToggleFavourite={handleToggleFavourite}

@@ -18,7 +18,7 @@ const FavouritePhotos = () => {
   }, []);
 
   const handleToggleFavourite = (id:number) => {
-    setFavouritePhotos((prevPhotos) => toggleFavourite(prevPhotos, id));
+    setFavouritePhotos((prevPhotos) => toggleFavourite(prevPhotos,id));
   };
 
   return (

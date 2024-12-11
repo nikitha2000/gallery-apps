@@ -12,12 +12,12 @@ interface Photo {
   favourites: boolean;
 }
 
-interface PhotoItemProps
- { photo: Photo; 
-  onToggleFavourite: (id: number) => void; 
+interface PhotoItemProps {
+  photo: Photo; 
+  onToggleFavourite:(id: number) => void; 
 }
 
-const PhotoItem:React.FC<PhotoItemProps> = ({ photo, onToggleFavourite }) => {
+const PhotoItem = ({ photo, onToggleFavourite }:PhotoItemProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate();
 
