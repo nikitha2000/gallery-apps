@@ -1,22 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./component/header/Header";
-import Navbar from "./component/Navigation/Navbar";
-import PhotoDetails from "./component/Gallery/PhotoDetails";
-import Favourites from "./pages/FavouritesPage";
-import Home from "./pages/Home/Home";
+import PhotoDetails from "./component/GalleryList/PhotoDetails";
+import Header from "./component/header";
+import Navbar from "./component/Navigation";
+import Favourites from "./pages/Favourite";
+import Home from "./pages/Home";
 import Photos from "./pages/Photos";
 import "./App.css";
 
 function App() {
+  const [searchQuery, setSearchQuery] = useState("");
+
   return (
     <Router>
       <Header />
-      <Navbar />
+      <Navbar setSearchQuery={setSearchQuery} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/favourites" element={<Favourites />} />
-        <Route path="/photos" element={<Photos />} />
+        <Route path="/photos" element={<Photos searchQuery={searchQuery} />} />
         <Route path="/photos/:photoId" element={<PhotoDetails />} />
       </Routes>
     </Router>
