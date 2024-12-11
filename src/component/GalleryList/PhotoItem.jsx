@@ -28,7 +28,7 @@ const PhotoItem = ({ photo, onToggleFavourite }) => {
     }
   };
 
-  const favouriteButtonClass = photo.favourites ? "bg-red" : "bg-lightPink";
+  const favouriteButtonClass = photo.favourites ? "bg-red" : "bg-light-pink";
 
   return (
     <div
@@ -48,7 +48,7 @@ const PhotoItem = ({ photo, onToggleFavourite }) => {
           <div className="flex gap-2">
             <Button
               label={<img src="/asset/save.svg" alt="Save Icon" />}
-              className="bg-lightPink text-white cursor-pointer p-2  h-12 w-12 flex items-center justify-center border-none rounded-md"
+              className="bg-light-pink text-white cursor-pointer p-2 h-12 w-12 flex items-center justify-center border-none rounded-md"
             />
             <Button
               label={<img src="/asset/heart.svg" alt="Favourite Icon" />}
@@ -56,13 +56,13 @@ const PhotoItem = ({ photo, onToggleFavourite }) => {
               onClick={handleFavouriteIconClick}
             />
           </div>
-          <div className=" bottom-8">
+          <div className="bottom-8">
             <span className="block absolute w-auto max-w-custom-calc bottom-7 left-7 text-base text-white text-ellipsis whitespace-nowrap border-none overflow-hidden">
               {photo.title}
             </span>
             <Button
               label="Download"
-              className="absolute justify-center h-12 bottom-8 right-5 bg-green border-none rounded-full text-lg text-white "
+              className="absolute justify-center bottom-8 right-5 h-12 bg-green border-none rounded-full text-lg text-white"
             />
           </div>
         </div>
