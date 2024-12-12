@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Button from "../Button";
+import { Photo } from "../../type"
+import Button from "../Button/Button";
 import "./PhotoItem.css";
 
-const PhotoItem = ({ photo, onToggleFavourite }) => {
+interface PhotoItemProps {
+  photo: Photo; 
+  onToggleFavourite:(id: number) => void; 
+}
+
+const PhotoItem = ({ photo, onToggleFavourite }:PhotoItemProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate();
 
@@ -19,7 +25,7 @@ const PhotoItem = ({ photo, onToggleFavourite }) => {
     navigate(`/photos/${photo.id}`);
   };
 
-  const handleFavouriteIconClick = (e) => {
+  const handleFavouriteIconClick = (e:React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     if (typeof onToggleFavourite === "function") {
       onToggleFavourite(photo.id);
